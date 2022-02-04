@@ -1,3 +1,74 @@
+.wrapper {
+    display: flex;
+    align-items: flex-end;
+}
+.avatar {
+    width: 55px;
+    height: 55px;
+    margin-right: 25px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #666;
+}
+.image {
+    max-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+}
 .message {
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
+    padding: 10px 65px 15px 20px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    background-color: rgba(0, 0, 0, .8);
+}
+.message::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background-color: #fff;
+    left: -25px;
+    bottom: 0;
+    width: 25px;
+    height: 25px;
+    border-bottom-right-radius: 25px;
+    overflow: hidden;
 
+}
+.message::after {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    background-color: rgba(0, 0, 0, .8);
+    left: -25px;
+    bottom: 0;
+    width: 25px;
+    height: 22px;
+    overflow: hidden;
+}
+.name {
+    margin-bottom: 5px;
+    color: #a395d6;
+    font-weight: 600;
+}
+.text {
+    color: #fff;
+}
+.date {
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    /* align-self: flex-end; */
+    color: #666
+}
+
+@media (max-width: 400px) {
+    .message {
+        min-width: 180px;
+    }
 }
