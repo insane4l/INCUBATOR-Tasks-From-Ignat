@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import Message from './Message'
 
 const messageData = {
@@ -8,7 +8,7 @@ const messageData = {
     time: '22:00',
 }
 
-function HW1() {
+function HW1(): ReactElement {
     return (
         <div>
             <hr/>
