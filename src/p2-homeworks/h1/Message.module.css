@@ -19,13 +19,15 @@
     box-sizing: border-box;
     position: relative;
     display: flex;
+    max-width: 400px;
     flex-direction: column;
     min-width: 250px;
     padding: 10px 65px 15px 20px;
+    word-break: break-all;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
-    background-color: rgba(0, 0, 0, .8);
+    background-color: rgba(0, 0, 0, .6);
 }
 .message::before {
     content: "";
@@ -44,7 +46,7 @@
     content: "";
     position: absolute;
     z-index: -2;
-    background-color: rgba(0, 0, 0, .8);
+    background-color: rgba(0, 0, 0, .6);
     left: -25px;
     bottom: 0;
     width: 25px;

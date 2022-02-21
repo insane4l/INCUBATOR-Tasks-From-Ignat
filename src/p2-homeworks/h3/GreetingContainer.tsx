@@ -1,28 +1,45 @@
 import React, {useState} from 'react'
 import Greeting from './Greeting'
+import { UserType } from './HW3'
 
 type GreetingContainerPropsType = {
-    users: any // need to fix any
-    addUserCallback: any // need to fix any
+    users: UserType[]
+    addUserCallback: (name: string) => void
 }
 
-// более простой и понятный для новичков
-// function GreetingContainer(props: GreetingPropsType) {
-
-// более современный и удобный для про :)
 // уровень локальной логики
-const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUserCallback}) => { // деструктуризация пропсов
-    const [name, setName] = useState<any>('') // need to fix any
-    const [error, setError] = useState<any>('') // need to fix any
+const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUserCallback}) => {
+    const [name, setName] = useState<string>('')
+    const [error, setError] = useState<string>('')
+    const [isDisplayedGuests, setDisplayGuests] = useState(false)
 
-    const setNameCallback = (e: any) => { // need to fix any
-        setName('') // need to fix
+    const setNameCallback = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setName(e.currentTarget.value)
+        setError('')
     }
+
     const addUser = () => {
-        alert(`Hello  !`) // need to fix
+        let newName = name.trim()
+        setName('')
+
+        if ( !newName ) return setError('Field required')
+        if ( /\d/g.test(newName) ) return setError('Numbers are not allowed')
+        if ( /[^\w]/g.test(newName) ) return setError('Symbols are not allowed')
+        if ( newName.length < 2 ) return setError('Name must contain 2+ characters')
+
+        addUserCallback(newName)
+        alert(`Hello ${newName} !`)
     }
 
-    const totalUsers = 0 // need to fix
+    const onKeyPressHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.charCode === 13) {
+            addUser();
+        }
+    }
+
+    const showGuestsList = () => {
+        setDisplayGuests(!isDisplayedGuests)
+    }
 
     return (
         <Greeting
@@ -30,7 +47,11 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUser
             setNameCallback={setNameCallback}
             addUser={addUser}
             error={error}
-            totalUsers={totalUsers}
+            totalUsers={users.length}
+            onKeyPressHandler={onKeyPressHandler}
+            showGuestsList={showGuestsList}
+            isDisplayedGuests={isDisplayedGuests}
+            users={users}
         />
     )
 }

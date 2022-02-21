@@ -2,6 +2,13 @@
 
 }
 
-.error {
+.guest__input {
+    border: 1px solid #666;
+}
+
+.validation_error {
     border: 1px solid red;
+}
+.error_message {
+    color: red;
 }
