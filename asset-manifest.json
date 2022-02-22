@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/INCUBATOR-Tasks-From-Ignat/static/css/main.392b6d94.css",
+    "main.js": "/INCUBATOR-Tasks-From-Ignat/static/js/main.e0b1d2f5.js",
+    "index.html": "/INCUBATOR-Tasks-From-Ignat/index.html",
+    "main.392b6d94.css.map": "/INCUBATOR-Tasks-From-Ignat/static/css/main.392b6d94.css.map",
+    "main.e0b1d2f5.js.map": "/INCUBATOR-Tasks-From-Ignat/static/js/main.e0b1d2f5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.392b6d94.css",
+    "static/js/main.e0b1d2f5.js"
+  ]
+}
