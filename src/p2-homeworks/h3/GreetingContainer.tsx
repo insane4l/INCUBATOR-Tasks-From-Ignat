@@ -31,10 +31,8 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUser
         alert(`Hello ${newName} !`)
     }
 
-    const onKeyPressHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
-        if (e.charCode === 13) {
-            addUser();
-        }
+    const onEnterPressHandler = () => {
+        addUser();
     }
 
     const showGuestsList = () => {
@@ -48,7 +46,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUser
             addUser={addUser}
             error={error}
             totalUsers={users.length}
-            onKeyPressHandler={onKeyPressHandler}
+            onEnterPressHandler={onEnterPressHandler}
             showGuestsList={showGuestsList}
             isDisplayedGuests={isDisplayedGuests}
             users={users}

@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react'
 import Affair from './Affair'
 import {AffairType, FilterType} from './HW2'
 import s from './Affairs.module.css'
+import SuperButton from '../h4/common/c2-SuperButton/SuperButton'
 
 type AffairsPropsType = {
     data: Array<AffairType>
@@ -16,8 +17,8 @@ function Affairs(props: AffairsPropsType): ReactElement {
     const {data, currentFilter, setFilter, deleteAffairCallback, sortByPriorityCallback} = props
 
     const mappedAffairs = data.map((a: AffairType) => (
-        <Affair // should work
-            key={a._id} // кеи ОБЯЗАТЕЛЬНЫ в 99% - так что лучше их писать всегда при создании компонент в мапе
+        <Affair
+            key={a._id}
             affair={a}
             deleteAffairCallback={deleteAffairCallback}
         />
@@ -43,13 +44,14 @@ function Affairs(props: AffairsPropsType): ReactElement {
 
     return (
         <div>
-            <button onClick={setAllByPriority}>Sort by priority</button>
+            <SuperButton onClick={setAllByPriority}>Sort by priority</SuperButton>
+
             {mappedAffairs}
 
-            <button className={setClassList('all') + " " + s.priority_all} onClick={setAll}>All</button>
-            <button className={setClassList('high') + " " + s.priority_high} onClick={setHigh}>High</button>
-            <button className={setClassList('middle') + " " + s.priority_middle} onClick={setMiddle}>Middle</button>
-            <button className={setClassList('low') + " " + s.priority_low} onClick={setLow}>Low</button>
+            <SuperButton className={setClassList('all') + " " + s.priority_all} onClick={setAll}>All</SuperButton>
+            <SuperButton className={setClassList('high') + " " + s.priority_high} onClick={setHigh}>High</SuperButton>
+            <SuperButton className={setClassList('middle') + " " + s.priority_middle} onClick={setMiddle}>Middle</SuperButton>
+            <SuperButton className={setClassList('low') + " " + s.priority_low} onClick={setLow}>Low</SuperButton>
         </div>
     )
 }

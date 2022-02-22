@@ -1,8 +1,9 @@
-.someClass {
-
+.guest__form {
+    display: flex;
 }
 
 .guest__input {
+    width: 100%;
     border: 1px solid #666;
 }
 
@@ -10,5 +11,7 @@
     border: 1px solid red;
 }
 .error_message {
+    display: block;
+    width: 100%;
     color: red;
 }

@@ -1,5 +1,5 @@
 .superInput {
-
+    background-color: rgb(99, 248, 99);
 }
 
 .errorInput {
@@ -8,5 +8,6 @@
 }
 
 .error {
+    height: 22px;
     color: red;
 }
