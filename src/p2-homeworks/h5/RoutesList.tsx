@@ -1,13 +1,32 @@
 import React from 'react'
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
+import Error404 from './pages/Error404'
+import Junior from './pages/Junior'
+import JuniorPlus from './pages/JuniorPlus'
+import PreJunior from './pages/PreJunior'
 
 export const PATH = {
     PRE_JUNIOR: '/pre-junior',
-    // add paths
+    JUNIOR: '/junior',
+    JUNIOR_PLUS: '/junior-plus'
 }
 
-function Routes() {
+function RoutesList() {
     return (
         <div>
+            
+                <Routes>
+                    <Route path="/" element={ <Navigate to={PATH.PRE_JUNIOR}/> } />
+
+                    <Route path={PATH.PRE_JUNIOR} element={ <PreJunior/> } />
+                    <Route path={PATH.JUNIOR} element={ <Junior/> } />
+                    <Route path={PATH.JUNIOR_PLUS} element={ <JuniorPlus/> } />
+
+                    <Route path="*" element={ <Error404/> } />
+                </Routes>
+
+            
+
             {/*Switch выбирает первый подходящий роут*/}
             {/*<Switch>*/}
 
@@ -16,7 +35,7 @@ function Routes() {
             {/*<Route path={'/'} exact render={() => <Redirect to={PATH.PRE_JUNIOR}/>}/>*/}
 
             {/*<Route path={PATH.PRE_JUNIOR} render={() => <PreJunior/>}/>*/}
-                // add routes
+
 
             {/*у этого роута нет пути, он отрисуется если пользователь захочет попасть на несуществующую страницу*/}
             {/*<Route render={() => <Error404/>}/>*/}
@@ -26,4 +45,4 @@ function Routes() {
     )
 }
 
-export default Routes
+export default RoutesList
