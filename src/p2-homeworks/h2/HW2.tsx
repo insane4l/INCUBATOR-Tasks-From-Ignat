@@ -1,4 +1,5 @@
 import React, {ReactElement, useState} from 'react'
+import { ButtonStyleType } from '../h4/common/c2-SuperButton/SuperButton'
 import Affairs from './Affairs'
 
 // types
@@ -10,6 +11,13 @@ export type AffairType = {
 }
 export type FilterType = 'all' | AffairPriorityType
 
+export type FilterButtonType = {
+    style: ButtonStyleType
+    value: FilterType
+    title: string
+    id: number
+}
+
 // constants
 const defaultAffairs: Array<AffairType> = [
     {_id: 1, name: 'React', priority: 'high'},
@@ -17,6 +25,13 @@ const defaultAffairs: Array<AffairType> = [
     {_id: 3, name: 'games', priority: 'low'},
     {_id: 4, name: 'work', priority: 'high'},
     {_id: 5, name: 'html & css', priority: 'middle'},
+]
+
+const filterButtons: Array<FilterButtonType> = [
+    {style: "dark", value: 'all', title: 'All', id: 1},
+    {style: "danger", value: 'high', title: 'High', id: 2},
+    {style: "warning", value: 'middle', title: 'Middle', id: 3},
+    {style: "success", value: 'low', title: 'Low', id: 4}
 ]
 
 export type SortOptionsType = 'originalList' | 'fromHighPriority' | 'fromLowPriority'
@@ -68,6 +83,7 @@ function HW2(): ReactElement {
                 setFilter={setFilter}
                 deleteAffairCallback={deleteAffairCallback}
                 sortByPriorityCallback={sortByPriorityCallback}
+                filterButtons={filterButtons}
             />
 
             {/* <hr/> */}

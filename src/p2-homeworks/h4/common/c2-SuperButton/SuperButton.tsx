@@ -4,7 +4,7 @@ import s from './SuperButton.module.css'
 // тип пропсов обычной кнопки, children в котором храниться название кнопки там уже описан
 type DefaultButtonPropsType = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
 
-type ButtonStyleType = 'primary' | 'outline_primary' | 'success' | 'outline_success' 
+export type ButtonStyleType = 'primary' | 'outline_primary' | 'success' | 'outline_success' 
                         | 'danger' | 'outline_danger' | 'warning' | 'outline_warning'
                         | 'dark' | 'outline_dark'
 type ButtonSizeType = 'small' | 'medium' | 'large'
