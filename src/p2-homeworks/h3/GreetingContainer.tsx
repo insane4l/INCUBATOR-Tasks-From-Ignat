@@ -36,7 +36,9 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUser
     }
 
     const showGuestsList = () => {
-        setDisplayGuests(!isDisplayedGuests)
+        if (users.length > 0) {
+            setDisplayGuests(!isDisplayedGuests)
+        }
     }
 
     return (

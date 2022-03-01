@@ -40,18 +40,18 @@ function Affairs(props: AffairsPropsType): ReactElement {
         setFilter('low')
     }
 
-    const setClassList = (filterValue: FilterType) => (currentFilter === filterValue ? s.filter__btn_active : "") + ` ${s.filter__btn} ${s.button}`
+    const setClassList = (filterValue: FilterType) => currentFilter === filterValue ? s.filter__btn_active : s.filter__btn
 
     return (
         <div>
-            <SuperButton onClick={setAllByPriority}>Sort by priority</SuperButton>
+            <SuperButton btnStyle="primary" disabled={currentFilter !== 'all'} onClick={setAllByPriority}>Sort by priority</SuperButton>
 
             {mappedAffairs}
 
-            <SuperButton className={setClassList('all') + " " + s.priority_all} onClick={setAll}>All</SuperButton>
-            <SuperButton className={setClassList('high') + " " + s.priority_high} onClick={setHigh}>High</SuperButton>
-            <SuperButton className={setClassList('middle') + " " + s.priority_middle} onClick={setMiddle}>Middle</SuperButton>
-            <SuperButton className={setClassList('low') + " " + s.priority_low} onClick={setLow}>Low</SuperButton>
+            <SuperButton upperCase btnStyle="dark" btnSize='medium' className={setClassList('all')} onClick={setAll}>All</SuperButton>
+            <SuperButton upperCase btnStyle="danger" btnSize='medium' className={setClassList('high')} onClick={setHigh}>High</SuperButton>
+            <SuperButton upperCase btnStyle="warning" btnSize='medium' className={setClassList('middle')} onClick={setMiddle}>Middle</SuperButton>
+            <SuperButton upperCase btnStyle="success" btnSize='medium' className={setClassList('low')} onClick={setLow}>Low</SuperButton>
         </div>
     )
 }

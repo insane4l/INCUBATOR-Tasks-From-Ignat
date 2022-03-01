@@ -24,7 +24,7 @@ const Navbar = () => {
     return (
         <nav onClick={onBtnClickHandler} className={s.menu}>
 
-            <div className={s.menu__title}>Select your level</div>
+            <div className={s.menu__title}>Select homework level</div>
             
             <ul className={menuListCN}>
                 {menuItems}

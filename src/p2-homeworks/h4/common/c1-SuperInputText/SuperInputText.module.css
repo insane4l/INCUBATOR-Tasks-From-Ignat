@@ -1,13 +1,26 @@
+.wrapper {
+    min-height: 68px;
+}
+
 .superInput {
-    background-color: rgb(99, 248, 99);
+    display: block;
+    width: 280px;
+    height: 46px;
+    padding: 0 10px;
+    font-size: 18px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    color: #343a40;
+    outline: none;
 }
 
 .errorInput {
-    border: 3px solid lime;
-    background: red;
+    border: 1px solid #D32F2F;
 }
 
-.error {
+.errorSpan {
     height: 22px;
-    color: red;
+    padding-left: 10px;
+    color: #D32F2F;
+    font-size: 14px;
 }

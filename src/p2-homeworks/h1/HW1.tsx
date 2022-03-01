@@ -12,7 +12,8 @@ function HW1(): ReactElement {
     return (
         <div>
             <hr/>
-            homeworks 1
+            <h3>Homework #1</h3>
+            
 
             {/*should work (должно работать)*/}
 
@@ -23,10 +24,10 @@ function HW1(): ReactElement {
                 time={messageData.time}
             />
 
-            <hr/>
+            {/* <hr/> */}
             {/*для личного творчества, могу проверить*/}
             {/*<AlternativeMessage/>*/}
-            <hr/>
+            {/* <hr/> */}
         </div>
     )
 }

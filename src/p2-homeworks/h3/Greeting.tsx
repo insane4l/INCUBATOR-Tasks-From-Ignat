@@ -20,32 +20,33 @@ type GreetingPropsType = {
 const Greeting: React.FC<GreetingPropsType> = (
     {name, setNameCallback, addUser, error, totalUsers, onEnterPressHandler, showGuestsList, isDisplayedGuests, users} ) => {
         
-    const inputClass = error ? s.validation_error + ' ' + s.guest__input : s.guest__input
 
     return (
         <div>
             <div className={s.guest__form}>
-                <div>
-                    <SuperInputText 
-                        value={name}
-                        error={error}
-                        onEnter={onEnterPressHandler}
-                        onChange={setNameCallback}
-                        className={inputClass}
-                        spanClassName={s.error_message}/>
-                </div>
+        
+                <SuperInputText
+                    placeholder='Enter your name' 
+                    value={name}
+                    error={error}
+                    onEnter={onEnterPressHandler}
+                    onChange={setNameCallback}
+                    spanClassName={s.error_message}/>
+                
                 
 
-                <SuperButton onClick={addUser}>add</SuperButton>
+                <SuperButton className={s.submit_btn} btnStyle="primary" onClick={addUser}>add</SuperButton>
             </div>
             
             
-            {/* <div className={}>{}</div> */}
             <div>Total guests count: [{totalUsers}]</div>
-            <button onClick={showGuestsList}>Show guests list</button>
+            <SuperButton disabled={totalUsers <= 0} btnStyle="dark" onClick={showGuestsList}>
+                {isDisplayedGuests ? 'Hide' : 'Show'} guests list
+            </SuperButton>
             {isDisplayedGuests && <GuestsList users={users}/>}
         </div>
     )
 }
+
 
 export default Greeting

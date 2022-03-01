@@ -12,6 +12,7 @@ function Message(props: MessagePropsType): ReactElement {
             </div>
 
             <div className={style.message}>
+                <div className={style.decorator}></div>
                 <div className={style.name}> {name} </div>
                 <div className={style.text}> {message} </div>
                 <div className={style.date}> {time} </div>

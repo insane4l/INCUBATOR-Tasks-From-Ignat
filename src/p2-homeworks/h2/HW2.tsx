@@ -59,7 +59,7 @@ function HW2(): ReactElement {
     return (
         <div>
             <hr/>
-            homeworks 2
+            <h3>Homework #2</h3>
 
             {/*should work (должно работать)*/}
             <Affairs
@@ -70,10 +70,10 @@ function HW2(): ReactElement {
                 sortByPriorityCallback={sortByPriorityCallback}
             />
 
-            <hr/>
+            {/* <hr/> */}
             {/*для личного творчества, могу проверить*/}
             {/*<AlternativeAffairs/>*/}
-            <hr/>
+            {/* <hr/> */}
         </div>
     )
 }
