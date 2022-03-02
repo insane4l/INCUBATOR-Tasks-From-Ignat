@@ -12,9 +12,9 @@ const GuestsList: React.FC<GuestsListPropsType> = ( {users, deleteUser} ) => {
 
         
     return (
-        <ul>
+        <ul className={s.guest__list}>
             {users.map(el => (
-                <li key={el._id}>
+                <li key={el._id} className={s.guest__list_item}>
                     {el.name} <SuperButton btnStyle="danger" onClick={() => deleteUser(el._id)}> x </SuperButton>
                 </li>
             ))}

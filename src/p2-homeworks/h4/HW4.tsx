@@ -22,56 +22,51 @@ function HW4() {
     return (
         <div>
             <hr/>
-            <h3>Homework #4</h3>
+            <section className="hw_section">
+                <h3>Homework #4</h3>
 
-            <div className={s.column}>
-                <SuperInputText
-                    value={text}
-                    onChangeText={setText}
-                    onEnter={showAlert}
-                    error={error}
-                    // spanClassName={s.testSpanError}
-                />
+                <div className={s.column}>
+                    <SuperInputText
+                        value={text}
+                        onChangeText={setText}
+                        onEnter={showAlert}
+                        error={error}
+                        // spanClassName={s.testSpanError}
+                    />
 
-                <SuperInputText
-                    // className={s.blue} // проверьте, рабоет ли смешивание классов
-                />
+                    <SuperInputText
+                        // className={s.blue} // проверьте, рабоет ли смешивание классов
+                    />
 
-                {/*----------------------------------------------------*/}
+                    {/*----------------------------------------------------*/}
 
-                <SuperButton>
-                    default
-                </SuperButton>
+                    <SuperButton>
+                        default
+                    </SuperButton>
 
-                <SuperButton
-                    onClick={showAlert}
-                >
-                    delete {/*// название кнопки попадёт в children*/}
-                </SuperButton>
+                    <SuperButton
+                        onClick={showAlert}
+                    >
+                        delete {/*// название кнопки попадёт в children*/}
+                    </SuperButton>
 
-                <SuperButton disabled>
-                    disabled
-                </SuperButton>
+                    <SuperButton disabled>
+                        disabled
+                    </SuperButton>
 
-                {/*----------------------------------------------------*/}
+                    {/*----------------------------------------------------*/}
 
-                <SuperCheckbox
-                    checked={checked}
-                    onChangeChecked={setChecked}
-                >
-                    some text {/*// этот текст попадёт в children*/}
-                </SuperCheckbox>
+                    <SuperCheckbox
+                        checked={checked}
+                        onChangeChecked={setChecked}
+                    >
+                        some text {/*// этот текст попадёт в children*/}
+                    </SuperCheckbox>
 
-                {/*// onChange тоже должен работать*/}
-                <SuperCheckbox checked={checked} onChange={testOnChange}/>
-            </div>
-
-            {/* <hr/> */}
-            {/*для личного творчества, могу проверить*/}
-            {/*<AlternativeSuperInputText/>*/}
-            {/*<AlternativeSuperButton/>*/}
-            {/*<AlternativeSuperCheckbox/>*/}
-            {/* <hr/> */}
+                    {/*// onChange тоже должен работать*/}
+                    <SuperCheckbox checked={checked} onChange={testOnChange}/>
+                </div>
+            </section>
         </div>
     )
 }

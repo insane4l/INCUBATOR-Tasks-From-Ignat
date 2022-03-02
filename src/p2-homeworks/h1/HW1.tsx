@@ -12,18 +12,18 @@ function HW1(): ReactElement {
     return (
         <div>
             <hr/>
-            <h3>Homework #1</h3>
-            
+            <section className="hw_section">
 
-            {/*should work (должно работать)*/}
+                <h3>Homework #1</h3>
 
-            <Message
-                avatar={messageData.avatar}
-                name={messageData.name}
-                message={messageData.message}
-                time={messageData.time}
-            />
+                <Message
+                    avatar={messageData.avatar}
+                    name={messageData.name}
+                    message={messageData.message}
+                    time={messageData.time}
+                />
 
+            </section>
             {/* <hr/> */}
             {/*для личного творчества, могу проверить*/}
             {/*<AlternativeMessage/>*/}

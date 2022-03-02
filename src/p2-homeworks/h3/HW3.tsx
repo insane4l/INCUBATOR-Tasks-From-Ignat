@@ -24,14 +24,13 @@ function HW3() {
     return (
         <div>
             <hr/>
-            <h3>Homework #3</h3>
+            <section className="hw_section">
 
-            <GreetingContainer users={users} addUserCallback={addUserCallback} deleteUser={deleteUser} />
+                <h3>Homework #3</h3>
 
-            {/* <hr/> */}
-            {/*для личного творчества, могу проверить*/}
-            {/*<AlternativeGreeting/>*/}
-            {/* <hr/> */}
+                <GreetingContainer users={users} addUserCallback={addUserCallback} deleteUser={deleteUser} />
+
+            </section>
         </div>
     )
 }

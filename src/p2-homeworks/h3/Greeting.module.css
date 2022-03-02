@@ -4,3 +4,28 @@
 .submit_btn {
     height: 46px;
 }
+
+.guests_counter {
+    margin-bottom: 10px;
+}
+
+.guests_counter span {
+    color: yellow;
+    font-weight: 500;
+}
+
+.guest__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    max-width: 325px;
+    padding: 0;
+    list-style-type: none;
+}
+
+.guest__list_item {
+    padding: 6px;
+    border-radius: 4px;
+    font-weight: 500;
+    background-color: rgba(0,0,0, .1);
+}

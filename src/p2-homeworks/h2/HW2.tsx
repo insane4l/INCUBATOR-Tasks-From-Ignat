@@ -20,11 +20,11 @@ export type FilterButtonType = {
 
 // constants
 const defaultAffairs: Array<AffairType> = [
-    {_id: 1, name: 'React', priority: 'high'},
-    {_id: 2, name: 'anime', priority: 'low'},
-    {_id: 3, name: 'games', priority: 'low'},
-    {_id: 4, name: 'work', priority: 'high'},
-    {_id: 5, name: 'html & css', priority: 'middle'},
+    {_id: 1, name: 'React.js', priority: 'high'},
+    {_id: 2, name: 'Anime', priority: 'low'},
+    {_id: 3, name: 'Games', priority: 'low'},
+    {_id: 4, name: 'Work', priority: 'high'},
+    {_id: 5, name: 'HTML & CSS', priority: 'middle'},
 ]
 
 const filterButtons: Array<FilterButtonType> = [
@@ -74,22 +74,18 @@ function HW2(): ReactElement {
     return (
         <div>
             <hr/>
-            <h3>Homework #2</h3>
+            <section className="hw_section">
+                <h3>Homework #2</h3>
 
-            {/*should work (должно работать)*/}
-            <Affairs
-                data={filteredAffairs}
-                currentFilter={filter}
-                setFilter={setFilter}
-                deleteAffairCallback={deleteAffairCallback}
-                sortByPriorityCallback={sortByPriorityCallback}
-                filterButtons={filterButtons}
-            />
+                <Affairs
+                    data={filteredAffairs}
+                    currentFilter={filter}
+                    setFilter={setFilter}
+                    deleteAffairCallback={deleteAffairCallback}
+                    sortByPriorityCallback={sortByPriorityCallback}
+                    filterButtons={filterButtons} />
 
-            {/* <hr/> */}
-            {/*для личного творчества, могу проверить*/}
-            {/*<AlternativeAffairs/>*/}
-            {/* <hr/> */}
+            </section>
         </div>
     )
 }

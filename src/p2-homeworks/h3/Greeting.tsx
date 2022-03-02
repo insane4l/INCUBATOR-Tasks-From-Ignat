@@ -40,10 +40,12 @@ const Greeting: React.FC<GreetingPropsType> = (
             </div>
             
             
-            <div>Total guests count: [{totalUsers}]</div>
+            <div className={s.guests_counter}>Total guests count: [<span>{totalUsers}</span>]</div>
+
             <SuperButton disabled={totalUsers <= 0} btnStyle="dark" onClick={showGuestsList}>
                 {isDisplayedGuests ? 'Hide' : 'Show'} guests list
             </SuperButton>
+
             {isDisplayedGuests && <GuestsList users={users} deleteUser={deleteUser} />}
         </div>
     )

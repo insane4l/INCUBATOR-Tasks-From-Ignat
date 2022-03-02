@@ -55,9 +55,14 @@ function Affairs(props: AffairsPropsType): ReactElement {
 
             <SuperButton btnStyle="primary" disabled={currentFilter !== 'all'} onClick={sortAllByPriority}>Sort by priority</SuperButton>
 
-            {mappedAffairs}
+            <div className={s.affairs__wrapper}>
+                {mappedAffairs}
+            </div>
 
-            {mappedFilterBtns}
+            <div className={s.filter__btns_wrapper}>
+                {mappedFilterBtns}
+            </div>
+            
             {/* <SuperButton upperCase btnStyle="dark" btnSize='medium' className={setClassList('all')} onClick={setAll}>All</SuperButton>
             <SuperButton upperCase btnStyle="danger" btnSize='medium' className={setClassList('high')} onClick={setHigh}>High</SuperButton>
             <SuperButton upperCase btnStyle="warning" btnSize='medium' className={setClassList('middle')} onClick={setMiddle}>Middle</SuperButton>
