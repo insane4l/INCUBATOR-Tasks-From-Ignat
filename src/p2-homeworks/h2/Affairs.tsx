@@ -53,7 +53,7 @@ function Affairs(props: AffairsPropsType): ReactElement {
             {/* todo: uncomment, after accepting homework */}
             {/* <AffairsForm addNewItem={() => {}}/> */}
 
-            <SuperButton btnStyle="primary" disabled={currentFilter !== 'all'} onClick={sortAllByPriority}>Sort by priority</SuperButton>
+            <SuperButton btnStyle="primary" disabled={currentFilter !== 'all' || data.length < 1} onClick={sortAllByPriority}>Sort by priority</SuperButton>
 
             <div className={s.affairs__wrapper}>
                 {mappedAffairs}
