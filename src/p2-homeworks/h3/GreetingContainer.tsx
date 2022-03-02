@@ -5,10 +5,11 @@ import { UserType } from './HW3'
 type GreetingContainerPropsType = {
     users: UserType[]
     addUserCallback: (name: string) => void
+    deleteUser: (userId: string) => void
 }
 
 // уровень локальной логики
-const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUserCallback}) => {
+const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUserCallback, deleteUser}) => {
     const [name, setName] = useState<string>('')
     const [error, setError] = useState<string>('')
     const [isDisplayedGuests, setDisplayGuests] = useState(false)
@@ -46,6 +47,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUser
             name={name}
             setNameCallback={setNameCallback}
             addUser={addUser}
+            deleteUser={deleteUser}
             error={error}
             totalUsers={users.length}
             onEnterPressHandler={onEnterPressHandler}

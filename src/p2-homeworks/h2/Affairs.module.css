@@ -1,3 +1,11 @@
+.affairs_form{
+    display: flex;
+}
+
+.affairs__submit_btn {
+    height: 46px;
+}
+
 
 .filter__btn {
     opacity: .6;

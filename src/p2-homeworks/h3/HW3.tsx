@@ -16,12 +16,17 @@ function HW3() {
         setUsers([...users, {_id: v1(), name}])
     }
 
+    const deleteUser = (userId: string) => {
+        const newUsersList =  users.filter(el => el._id !== userId)
+        setUsers(newUsersList)
+    }
+
     return (
         <div>
             <hr/>
             <h3>Homework #3</h3>
 
-            <GreetingContainer users={users} addUserCallback={addUserCallback}/>
+            <GreetingContainer users={users} addUserCallback={addUserCallback} deleteUser={deleteUser} />
 
             {/* <hr/> */}
             {/*для личного творчества, могу проверить*/}

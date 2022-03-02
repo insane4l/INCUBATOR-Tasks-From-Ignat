@@ -9,6 +9,7 @@ type GreetingPropsType = {
     name: string
     setNameCallback: (e: React.ChangeEvent<HTMLInputElement>) => void
     addUser: () => void
+    deleteUser: (userId: string) => void
     error: string
     totalUsers: number
     onEnterPressHandler: () => void
@@ -18,7 +19,7 @@ type GreetingPropsType = {
 }
 
 const Greeting: React.FC<GreetingPropsType> = (
-    {name, setNameCallback, addUser, error, totalUsers, onEnterPressHandler, showGuestsList, isDisplayedGuests, users} ) => {
+    {name, setNameCallback, addUser, deleteUser, error, totalUsers, onEnterPressHandler, showGuestsList, isDisplayedGuests, users} ) => {
         
 
     return (
@@ -43,7 +44,7 @@ const Greeting: React.FC<GreetingPropsType> = (
             <SuperButton disabled={totalUsers <= 0} btnStyle="dark" onClick={showGuestsList}>
                 {isDisplayedGuests ? 'Hide' : 'Show'} guests list
             </SuperButton>
-            {isDisplayedGuests && <GuestsList users={users}/>}
+            {isDisplayedGuests && <GuestsList users={users} deleteUser={deleteUser} />}
         </div>
     )
 }
