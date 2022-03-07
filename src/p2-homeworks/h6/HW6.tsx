@@ -11,7 +11,7 @@ function HW6() {
         saveState<string>('editable-span-value', value)
     }
     const restore = () => {
-        let savedValue = restoreState<string>('editable-span-value', 'Double click to edit text');
+        let savedValue = restoreState<string>('editable-span-value', '');
         setValue(savedValue);
     }
 
@@ -34,7 +34,7 @@ function HW6() {
                 <div className={s.buttons__wrapper}>
                     <SuperButton btnStyle="success" disabled={!value} onClick={save}>Save</SuperButton>
 
-                    {/* Не дизейблится, тк если нет значения в локал сторадж, то будет сетаться строка-подстраховка из функции restoreState (второй параметр) */}
+                    {/* Не дизейблится, тк если нет значения в локал сторадж, то поле очистится ( restoreState (второй параметр пустая строка) ) */}
                     <SuperButton btnStyle="dark" onClick={restore}>Restore</SuperButton>
                 </div>
                
