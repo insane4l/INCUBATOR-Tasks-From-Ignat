@@ -1,0 +1,26 @@
+.editable_span {
+    position: relative;
+    display: inline-block;
+    padding: 6px 10px 6px 26px;
+    border: 1px solid rgba(255,255,255, .4);
+    font-size: 14px;
+    line-height: 14px;
+    border-radius: 4px;
+    background-color: rgba(0,0,0, .1);
+}
+
+.editable_span:before {
+    content: '';
+    position: absolute;
+    display: block;
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    /* todo: Наверно иконку логичнее держать в папке с компонентом, чтоб удобнее переиспользовать было в др проектах.. пока оставил так */
+    background: url(../../../../assets/icons/pencil.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}

@@ -1,0 +1,13 @@
+.hw6_section {
+    min-width: 324px;
+}
+
+.text_fields {
+    min-height: 68px;
+}
+
+.buttons__wrapper {
+    display: flex;
+    gap: 6px;
+    margin-top: 5px;
+}
