@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react'
+import React, { createRef, ReactElement, useEffect, useState } from 'react'
 import Affair from './Affair'
 import { AffairPriorityType, AffairType, FilterButtonType, FilterType } from './HW2'
 import s from './Affairs.module.css'
@@ -17,6 +17,16 @@ type AffairsPropsType = {
 function Affairs(props: AffairsPropsType): ReactElement {
 
     const { data, currentFilter, setFilter, deleteAffairCallback, sortByPriorityCallback, filterButtons } = props
+
+    const [affairsListHeight, setAffairsListHeight] = useState<string>('')
+    const affairsListRef = createRef<HTMLDivElement>()
+
+    useEffect(() => {
+        if (affairsListRef.current?.clientHeight) {
+            setAffairsListHeight(`${affairsListRef.current?.clientHeight}px`);
+        }
+    }, [])
+
 
     const mappedAffairs = data.map((a: AffairType) => (
         <Affair
@@ -48,6 +58,8 @@ function Affairs(props: AffairsPropsType): ReactElement {
     //     return currentFilter === filterValue ? s.filter__btn_active : s.filter__btn
     // }
 
+    const affairsListStyle = affairsListHeight ? {height: affairsListHeight} : {}
+
     return (
         <div>
             {/* todo: uncomment, after accepting homework */}
@@ -55,7 +67,7 @@ function Affairs(props: AffairsPropsType): ReactElement {
 
             <SuperButton btnStyle="primary" disabled={currentFilter !== 'all' || data.length < 1} onClick={sortAllByPriority}>Sort by priority</SuperButton>
 
-            <div className={s.affairs__wrapper}>
+            <div ref={affairsListRef} className={s.affairs__wrapper} style={affairsListStyle}>
                 {mappedAffairs}
             </div>
 

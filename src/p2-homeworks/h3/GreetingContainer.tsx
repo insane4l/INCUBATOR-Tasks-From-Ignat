@@ -27,6 +27,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUser
         if ( /\d/g.test(newName) ) return setError('Numbers are not allowed')
         if ( /[^\w\s-]/g.test(newName) ) return setError('Symbols are not allowed')
         if ( newName.length < 2 ) return setError('Name must contain 2+ characters')
+        if ( newName.length > 25 ) return setError('Max name length 25 characters')
 
         addUserCallback(newName)
         alert(`Hello ${newName} !`)
