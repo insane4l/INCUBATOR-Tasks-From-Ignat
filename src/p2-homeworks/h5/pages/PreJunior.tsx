@@ -8,6 +8,7 @@ import HW6 from '../../h6/HW6'
 function PreJunior() {
     return (
         <div>
+            <h2 className="page__title">Pre-Junior page</h2>
             <HW1/>
             <HW2/>
             <HW3/>
