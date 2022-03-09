@@ -1,46 +1,68 @@
-import React, {useState} from 'react'
-import {homeWorkReducer} from './bll/homeWorkReducer'
+import React, {createRef, useEffect, useState} from 'react'
+import {homeWorkReducer, usersFilteredByAgeAC, usersSortedAC} from './bll/homeWorkReducer'
 import SuperButton from '../h4/common/c2-SuperButton/SuperButton'
+import s from './HW8.module.css'
 
-// export type UserType =
+// export type IncomingUsersType = typeof initialPeople
+export type IncomingUsersType = Array<{_id: number, name: string, age: number}>
 
-const initialPeople = [
+const initialPeople: IncomingUsersType = [
     {_id: 0, name: 'Кот', age: 3},
     {_id: 1, name: 'Александр', age: 66},
     {_id: 2, name: 'Коля', age: 16},
     {_id: 3, name: 'Виктор', age: 44},
     {_id: 4, name: 'Дмитрий', age: 40},
-    {_id: 5, name: 'Ирина', age: 55},
+    {_id: 5, name: 'Ирина', age: 55}
 ]
 
 function HW8() {
-    const [people, setPeople] = useState<any>(initialPeople) // need to fix any
+    const [people, setPeople] = useState<IncomingUsersType>(initialPeople)
+    const [peopleListHeight, setPeopleListHeight] = useState<string>('')
+    const peopleListRef = createRef<HTMLDivElement>()
 
-    // need to fix any
-    const finalPeople = people.map((p: any) => (
-        <div key={p._id}>
-            some name, age
+    useEffect(() => {
+        if (peopleListRef.current?.clientHeight) {
+            setPeopleListHeight(`${peopleListRef.current?.clientHeight}px`);
+        }
+    }, [])
+
+    const finalPeople = people.map(p => (
+        <div key={p._id} className={s.user__item}>
+            <div className={s.user__name}>{p.name}</div>
+            <div className={s.user__age}>{p.age}</div>
         </div>
     ))
 
-    const sortUp = () => setPeople(homeWorkReducer(initialPeople, {type: 'sort', payload: 'up'}))
+
+    const sortUp = () => setPeople( homeWorkReducer(initialPeople, usersSortedAC('up')) )
+    const sortDown = () => setPeople( homeWorkReducer(initialPeople, usersSortedAC('down')) )
+
+    const filterByAge18 = () => {
+        const newList = homeWorkReducer(initialPeople, usersFilteredByAgeAC(18))
+        setPeople(newList)
+    }
+
+
+    const peopleListStyle = peopleListHeight ? {height: peopleListHeight} : {}
 
     return (
         <div>
             <hr/>
-            homeworks 8
+            <section className="hw_section">
+                <h3>Homework #8</h3>
 
-            {/*should work (должно работать)*/}
-            {finalPeople}
+                <div ref={peopleListRef} style={peopleListStyle}>
+                    {finalPeople}
+                </div>
+                
 
-            <div><SuperButton onClick={sortUp}>sort up</SuperButton></div>
-            <div>sort down</div>
-            check 18
-
-            <hr/>
-            {/*для личного творчества, могу проверить*/}
-            {/*<AlternativePeople/>*/}
-            <hr/>
+                <div className={s.buttons__wrapper}>
+                    <SuperButton btnStyle='primary' onClick={sortUp}>Sort up</SuperButton>
+                    <SuperButton btnStyle='primary' onClick={sortDown}>Sort down</SuperButton>
+                    <SuperButton btnStyle='primary' onClick={filterByAge18}>Filter 18+</SuperButton>
+                </div>
+                
+            </section>
         </div>
     )
 }

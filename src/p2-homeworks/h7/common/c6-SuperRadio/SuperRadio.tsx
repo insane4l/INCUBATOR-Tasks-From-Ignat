@@ -53,7 +53,7 @@ const SuperRadio: React.FC<SuperRadioPropsType> = (
                 {o.label}
             </label>
         )
-    }) : []
+    }) : [] // if options did not come from the server
 
     return (
         <>

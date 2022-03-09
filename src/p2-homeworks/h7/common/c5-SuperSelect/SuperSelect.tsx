@@ -24,7 +24,7 @@ const SuperSelect: React.FC<SuperSelectPropsType> = (
     
     const mappedOptions = options ? options.map(el => (
         <option key={el.label} value={el.value} label={el.label} disabled={el.disabled}></option>
-    )) : []
+    )) : [] // if options did not come from the server
 
     const onChangeCallback = (e: ChangeEvent<HTMLSelectElement>) => {
         onChange && onChange(e)

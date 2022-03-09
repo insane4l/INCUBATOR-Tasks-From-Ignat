@@ -1,0 +1,32 @@
+.user__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 150px;
+    padding: 4px 8px;
+    margin-bottom: 4px;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255, .3);
+    background-color: rgba(0,0,0, .1);
+}
+
+.user__name {
+    font-weight: 600;
+}
+
+.user__age {
+    min-width: 30px;
+    padding: 2px 0;
+    text-align: center;
+    color: #29fd53;
+    background-color: rgba(0,0,0, .1);
+    border-radius: 50%;
+}
+
+
+.buttons__wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
