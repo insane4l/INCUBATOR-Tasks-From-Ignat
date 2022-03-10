@@ -5,15 +5,12 @@ function HW9() {
     return (
         <div>
             <hr/>
-            homeworks 9
+            <section className="hw_section">
+                <h3>Homework #9</h3>
+                
+                <Clock/>
 
-            {/*should work (должно работать)*/}
-            <Clock/>
-
-            <hr/>
-            {/*для личного творчества, могу проверить*/}
-            {/*<AlternativeClock/>*/}
-            <hr/>
+            </section>
         </div>
     )
 }
