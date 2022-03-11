@@ -47,10 +47,15 @@ function Clock() {
         let seconds = _transformWithZero( dateNow.getSeconds() ),
             minutes = _transformWithZero( dateNow.getMinutes() ),
             hours = _transformWithZero( dateNow.getHours() ),
-            day = _transformWithZero( dateNow.getDay() ),
-            month = _transformWithZero( dateNow.getMonth() ),
+            day = _transformWithZero( dateNow.getDate() ),
+            month = _transformWithZero( dateNow.getMonth() + 1),
             year = dateNow.getFullYear()
 
+
+            console.log(day);
+            console.log(month);
+            console.log(year);
+            
         return {
             time: `${hours}:${minutes}:${seconds}`,
             date: `${day}.${month}.${year}`
