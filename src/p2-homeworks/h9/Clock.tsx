@@ -50,11 +50,6 @@ function Clock() {
             day = _transformWithZero( dateNow.getDate() ),
             month = _transformWithZero( dateNow.getMonth() + 1),
             year = dateNow.getFullYear()
-
-
-            console.log(day);
-            console.log(month);
-            console.log(year);
             
         return {
             time: `${hours}:${minutes}:${seconds}`,
