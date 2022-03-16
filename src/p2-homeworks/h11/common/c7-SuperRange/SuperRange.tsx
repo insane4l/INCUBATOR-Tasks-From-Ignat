@@ -25,10 +25,14 @@ const SuperRange: React.FC<SuperRangePropsType> = (
         onChangeRange && onChangeRange(+e.currentTarget.value)
     }
 
-    const finalRangeClassName = `${s.range} ${className ? className : ''}`
+    const finalRangeClassName = `${s.range__input} ${className ? className : ''}`
+
+    const rangeSelectedLineWidth = ( (restProps.max ? +restProps.max : 100) / 100 ) * (restProps.value ? +restProps.value : 1) + '%'
+    const rangeSelectedLineStyle = (restProps.value || restProps.value === 0) ? {width: rangeSelectedLineWidth} : {}
 
     return (
-        <>
+        <div className={s.slider__wrapper}>
+            <div style={rangeSelectedLineStyle} className={s.range__selected_line}></div>
             <input
                 type={'range'}
                 onChange={onChangeCallback}
@@ -36,7 +40,8 @@ const SuperRange: React.FC<SuperRangePropsType> = (
 
                 {...restProps} // отдаём инпуту остальные пропсы если они есть (value например там внутри)
             />
-        </>
+            
+        </div>
     )
 }
 

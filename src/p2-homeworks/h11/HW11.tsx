@@ -7,8 +7,28 @@ function HW11() {
     const [value2, setValue2] = useState<number>(100)
 
     const onChangeDoubleRange = (value: [number, number]) => {
+
         setValue1(value[0])
         setValue2(value[1])
+    }
+
+    let valueScreenStyle = {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '40px',
+        height: '40px',
+        border: '2px solid #000',
+        borderRadius: '4px',
+        fontWeight: '600',
+        backgroundColor: '#222'
+    }
+
+    const rangeBlockStyle = {
+        display: 'flex',
+        alignItems: 'flex-end',
+        gap: '6px',
+        marginBottom: '20px'
     }
 
     return (
@@ -17,8 +37,9 @@ function HW11() {
             <section className="hw_section">
                 <h3>Homework #11</h3>
                 
-                <div>
-                    <span>{value1}</span>
+                <div style={rangeBlockStyle}>
+                    <div style={valueScreenStyle}> {value1} </div>
+                    
                     <SuperRange
                         min={0}
                         max={100}
@@ -27,10 +48,10 @@ function HW11() {
                     />
                 </div>
 
-                <div>
-                    <div>{value1}</div>
+                <div style={rangeBlockStyle}>
+                    <div style={valueScreenStyle}> {value1} </div>
                         <SuperDoubleRange value={[value1, value2]} onChangeRange={onChangeDoubleRange} min={0} max={100}/>
-                    <div>{value2}</div>
+                    <div style={valueScreenStyle}> {value2} </div>
                 </div>
             </section>
         </div>

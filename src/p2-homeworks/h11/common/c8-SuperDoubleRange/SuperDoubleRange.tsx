@@ -4,8 +4,8 @@ import s from './SuperDoubleRange.module.css'
 type SuperDoubleRangePropsType = {
     onChangeRange?: (value: [number, number]) => void
     value?: [number, number]
-    min: number
-    max: number
+    min?: number
+    max?: number
     step?: number
     disable?: boolean
 }
@@ -13,7 +13,7 @@ type SuperDoubleRangePropsType = {
 const SuperDoubleRange: React.FC<SuperDoubleRangePropsType> = (
     {
         onChangeRange, value,
-        min, max, step = 1, disable = false
+        min = 0, max = 100, step = 1, disable = false 
     }
 ) => {
 
@@ -38,8 +38,8 @@ const SuperDoubleRange: React.FC<SuperDoubleRangePropsType> = (
     const onChangeCallback = ([value1, value2]: onChangeCallbackArgsType) => {
         if (value && value.length === 2) {
 
-            if (onChangeRange && value1) onChangeRange([value1, value[1]])
-            if (onChangeRange && value2) onChangeRange([value[0], value2])
+            if (onChangeRange && value1) onChangeRange([value1, value[1]]) // todo: need to fix when value === 0
+            if (onChangeRange && value2) onChangeRange([value[0], value2]) // todo: need to fix when value === 0
         }
     }
 
@@ -50,12 +50,17 @@ const SuperDoubleRange: React.FC<SuperDoubleRangePropsType> = (
         onChangeCallback([undefined, +e.currentTarget.value])
     }
 
-    const commonProps = {min, max, step, disabled: disable, className: s.range__input, type: "range"}
+    // todo: code refactoring
+    const rangeSelectedLineWidth = (value && value.length === 2) ? ( +max / 100 ) * (Math.abs(value[0] - value[1])) + '%' : '0px'
+    const startPosition = (value && value.length === 2) ? value[0] < value[1] ? max / 100 * value[0] + '%' : max / 100 * value[1] + '%' : '0'
+    const rangeSelectedLineStyle = (value && value.length === 2) ? {left: startPosition, width: rangeSelectedLineWidth} : {}
 
+    const commonProps = {min, max, step, disabled: disable, className: s.range__input, type: "range"}
+    
     return (
         <div className={s.slider__wrapper}>
-            <div className={s.range__selected_line}></div>
-            <input value={value && value[0]} onChange={onFirstInputChange}  {...commonProps} />
+            <div style={rangeSelectedLineStyle} className={s.range__selected_line}></div>
+            <input value={value && value[0]} onChange={onFirstInputChange}  {...commonProps}/>
             <input value={value && value[1]} onChange={onSecondInputChange} {...commonProps} />
         </div>
     )
