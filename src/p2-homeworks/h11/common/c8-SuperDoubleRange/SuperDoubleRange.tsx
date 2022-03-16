@@ -38,8 +38,8 @@ const SuperDoubleRange: React.FC<SuperDoubleRangePropsType> = (
     const onChangeCallback = ([value1, value2]: onChangeCallbackArgsType) => {
         if (value && value.length === 2) {
 
-            if (onChangeRange && value1) onChangeRange([value1, value[1]]) // todo: need to fix when value === 0
-            if (onChangeRange && value2) onChangeRange([value[0], value2]) // todo: need to fix when value === 0
+            if ( onChangeRange && (typeof value1 === 'number') ) onChangeRange([value1, value[1]])
+            if ( onChangeRange && (typeof value2 === 'number') ) onChangeRange([value[0], value2])
         }
     }
 
