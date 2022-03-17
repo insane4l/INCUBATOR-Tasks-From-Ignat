@@ -27,8 +27,8 @@ function HW11() {
     const rangeBlockStyle = {
         display: 'flex',
         alignItems: 'flex-end',
-        gap: '6px',
-        marginBottom: '20px'
+        gap: '15px',
+        marginBottom: '30px'
     }
 
     return (
@@ -42,15 +42,16 @@ function HW11() {
                     
                     <SuperRange
                         min={0}
-                        max={100}
+                        max={150}
                         value={value1}
                         onChangeRange={setValue1}
+                        withValueIndicator
                     />
                 </div>
 
                 <div style={rangeBlockStyle}>
                     <div style={valueScreenStyle}> {value1} </div>
-                        <SuperDoubleRange value={[value1, value2]} onChangeRange={onChangeDoubleRange} min={0} max={100}/>
+                        <SuperDoubleRange min={0} max={150} value={[value1, value2]} onChangeRange={onChangeDoubleRange} withValueIndicators />
                     <div style={valueScreenStyle}> {value2} </div>
                 </div>
             </section>
