@@ -21,7 +21,8 @@ function HW11() {
         border: '2px solid #000',
         borderRadius: '4px',
         fontWeight: '600',
-        backgroundColor: '#222'
+        backgroundColor: '#222',
+        color: '#fff'
     }
 
     const rangeBlockStyle = {

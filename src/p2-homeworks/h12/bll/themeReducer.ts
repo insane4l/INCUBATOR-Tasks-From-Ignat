@@ -1,14 +1,25 @@
-const initState = {
+export type ThemeType = 'main' | 'dark' | 'js' | 'react' | 'purple_liquid'
 
+const initState = {
+    currentTheme: 'main' as ThemeType
 };
 
-export const themeReducer = (state = initState, action: any): any => { // fix any
+type InitialStateType = typeof initState
+
+export const themeReducer = (state: InitialStateType = initState, action: ActionTypes): InitialStateType => {
     switch (action.type) {
-        case "": {
-            return state;
+        case 'hw/theme/CHANGE_THEME': {
+            return {
+                ...state,
+                currentTheme: action.payload.theme
+            }
         }
         default: return state;
     }
 };
 
-export const changeThemeC = (): any => {}; // fix any
+type ActionTypes = ReturnType<typeof changeThemeAC>
+
+export const changeThemeAC = (theme: ThemeType) => (
+    {type: 'hw/theme/CHANGE_THEME', payload: {theme}} as const
+);

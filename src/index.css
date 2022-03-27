@@ -11,17 +11,11 @@
 
 body {
     margin: 0;
-    padding-bottom: 50px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    min-height: 100vh;
-    color: #fff;
-    background: linear-gradient(rgba(0,0,0, 0.7), rgba(0, 235, 235, 0.7)), url(./assets/images/appbg2.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
 }
 
 code {
@@ -29,13 +23,16 @@ code {
     monospace;
 }
 
-hr {
-    border-color: rgba(255,255,255, .2);
-}
-
 button, input {
     outline: none;
     border: none;
+}
+
+
+
+
+hr {
+    border-color: rgba(255,255,255, .2);
 }
 
 .page__title {
@@ -53,3 +50,4 @@ button, input {
     background-color: rgba(0, 235, 235, 0.2);
     box-shadow: 0 5px 30px rgb(0 0 0 / 40%);
 }
+

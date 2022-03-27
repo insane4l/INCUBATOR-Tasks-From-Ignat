@@ -1,6 +1,7 @@
 .clock__screen {
     width: 200px;
     height: 96px;
+    color: #fff;
 }
 
 .clock__time {

@@ -7,7 +7,7 @@ type LoadingReducerActionTypes = LoadingActionType
 
 export const loadingReducer = (state: InitialStateType = initState, action: LoadingReducerActionTypes): InitialStateType => { // fix any
     switch (action.type) {
-        case 'SET_ISLOADING': {
+        case 'hw/loading/SET_ISLOADING': {
             return {
                 ...state,
                 isLoading: action.payload.status
@@ -19,7 +19,7 @@ export const loadingReducer = (state: InitialStateType = initState, action: Load
 
 
 export const loadingAC = (status: boolean) => (
-    {type: 'SET_ISLOADING', payload: {status}} as const
+    {type: 'hw/loading/SET_ISLOADING', payload: {status}} as const
 )
 
 type LoadingActionType = ReturnType<typeof loadingAC>
