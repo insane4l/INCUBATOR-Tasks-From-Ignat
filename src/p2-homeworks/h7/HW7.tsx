@@ -21,7 +21,7 @@ function HW7() {
             <section className="hw_section">
                 <h3>Homework #7</h3>
 
-                <div className={s.sub_header}>Currently studying:</div>
+                <div className="sub_header">Currently studying:</div>
                 <div className={s.options__wrapper}>
                     <SuperSelect
                         options={arr}
@@ -34,7 +34,7 @@ function HW7() {
                         options={arr}
                         value={value}
                         onChangeOption={onChangeOption}
-                        activeLabelClass={s.label_selected}
+                        activeLabelClass="item_selected"
                     />
                 </div>
 

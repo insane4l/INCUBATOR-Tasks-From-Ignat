@@ -29,7 +29,7 @@ function HW8() {
     const finalPeople = people.map(p => (
         <div key={p._id} className={s.user__item}>
             <div className={s.user__name}>{p.name}</div>
-            <div className={s.user__age}>{p.age}</div>
+            <div className={`${s.user__age} sub_header`}>{p.age}</div>
         </div>
     ))
 
