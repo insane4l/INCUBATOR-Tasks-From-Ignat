@@ -1,0 +1,72 @@
+.menu {
+    display: inline-flex;
+    gap: 2px;
+    min-width: 242px;
+    margin-top: 6px;
+    cursor: pointer;
+    transform: translateX(-200px);
+    transition: .8s;
+    background-color: transparent;
+}
+.menu:hover {
+    transform: translateX(0);
+}
+
+.menu__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 70px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255, .2);
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #222327;
+    user-select: none;
+}
+
+.menu__title:hover {
+    color: #29fd53;
+}
+
+
+
+
+
+
+
+.options__list {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 70px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255, .2);
+    background-color: #222327;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.options__list select {
+    padding: 2px;
+    width: 0;
+    transition: 0.6s all;
+}
+
+
+
+
+
+.options__list.active {
+    width: 200px;
+}
+.options__list.active select{
+    width: 100%;
+    padding: 6px 60px 6px 8px;
+}

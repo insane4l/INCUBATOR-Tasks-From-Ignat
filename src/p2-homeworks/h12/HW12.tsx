@@ -3,15 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppStateType } from "../h10/bll/store";
 import SuperRadio from "../h7/common/c6-SuperRadio/SuperRadio";
 import { changeThemeAC, ThemeType } from "./bll/themeReducer";
-import s from './HW12.module.css';
 
-const radio = [
+export const themesRadio = [
     {label: 'Main', value: 'main', disabled: false},
     {label: 'Dark', value: 'dark', disabled: false},
     {label: 'JS', value: 'js', disabled: false},
     {label: 'React', value: 'react', disabled: false},
     {label: 'Purple Liquid', value: 'purple_liquid', disabled: false}
 ]
+
 
 function HW12() {
 
@@ -26,7 +26,7 @@ function HW12() {
         <div>
             <hr/>
             <section className="hw_section">
-                <h3>Homework #11</h3>
+                <h3>Homework #12</h3>
 
                 <div style={{marginBottom: '10px'}} className="sub_header">App Color Theme:</div>
 
@@ -36,10 +36,9 @@ function HW12() {
                         value={theme}
                         name="color_theme"
                         activeLabelClass="item_selected"
-                        options={radio}/>
+                        options={themesRadio}/>
                 </div>
             </section>
-            <hr/>
         </div>
     );
 }
