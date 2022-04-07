@@ -3,12 +3,19 @@ import SuperButton from '../h4/common/c2-SuperButton/SuperButton'
 import s from './Clock.module.css'
 
 function Clock() {
-    const [timerId, setTimerId] = useState<number>(0)
+    const [clockTimerId, setTimerId] = useState<number>(0)
     const [date, setDate] = useState<Date>(new Date())
     const [altString, setAltString] = useState<string | null>('XX:XX:XX')
     const [displayDate, setDateDisplay] = useState<boolean>(false)
+    
+    useEffect(() => {
+        return () => {
+            stop(clockTimerId)
+        }
+    }, [clockTimerId])
 
-    const stop = () => {
+    const stop = (timerId: number) => {
+        
         if (timerId) {
             clearInterval(timerId)
             setAltString('XX:XX:XX') // show text stub
@@ -17,7 +24,7 @@ function Clock() {
     }
 
     const start = () => {
-        stop()
+        stop(clockTimerId)
 
         setAltString(null) // hide text stub
         setDate(new Date()) // so that there is no delay (1 second)
@@ -81,8 +88,8 @@ function Clock() {
             </div>
 
             <div className={s.buttons__wrapper}>
-                <SuperButton disabled={!!timerId} btnStyle='success' onClick={start}>start</SuperButton>
-                <SuperButton disabled={!timerId} btnStyle='danger' onClick={stop}>stop</SuperButton>
+                <SuperButton disabled={!!clockTimerId} btnStyle='success' onClick={start}>start</SuperButton>
+                <SuperButton disabled={!clockTimerId} btnStyle='danger' onClick={() => stop(clockTimerId)}>stop</SuperButton>
             </div>
 
         </div>
