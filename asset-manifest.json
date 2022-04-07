@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/INCUBATOR-Tasks-From-Ignat/static/css/main.757355e7.css",
-    "main.js": "/INCUBATOR-Tasks-From-Ignat/static/js/main.15d46bf8.js",
+    "main.js": "/INCUBATOR-Tasks-From-Ignat/static/js/main.055d8dc4.js",
     "static/media/purple_liquid.jpg": "/INCUBATOR-Tasks-From-Ignat/static/media/purple_liquid.0a8a34ff40389ce14fec.jpg",
     "static/media/react_theme_bg.jpg": "/INCUBATOR-Tasks-From-Ignat/static/media/react_theme_bg.8f80ba55c86b28ed48e1.jpg",
     "static/media/callout404.png": "/INCUBATOR-Tasks-From-Ignat/static/media/callout404.28043e3c62d095079cdd.png",
@@ -12,10 +12,10 @@
     "static/media/pencil.png": "/INCUBATOR-Tasks-From-Ignat/static/media/pencil.79be99a40d764c700ce4.png",
     "index.html": "/INCUBATOR-Tasks-From-Ignat/index.html",
     "main.757355e7.css.map": "/INCUBATOR-Tasks-From-Ignat/static/css/main.757355e7.css.map",
-    "main.15d46bf8.js.map": "/INCUBATOR-Tasks-From-Ignat/static/js/main.15d46bf8.js.map"
+    "main.055d8dc4.js.map": "/INCUBATOR-Tasks-From-Ignat/static/js/main.055d8dc4.js.map"
   },
   "entrypoints": [
     "static/css/main.757355e7.css",
-    "static/js/main.15d46bf8.js"
+    "static/js/main.055d8dc4.js"
   ]
 }
