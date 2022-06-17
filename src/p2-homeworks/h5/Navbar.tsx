@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { PATH } from './RoutesList'
+import { isMobile } from 'react-device-detect';
 import s from './Navbar.module.css'
 
 const Navbar = () => {
@@ -11,14 +12,18 @@ const Navbar = () => {
         {path: PATH.JUNIOR_PLUS, descr: 'Junior Plus', title: 2}
     ]
 
-    const [isListActive, setListStatus] = useState(false);
+    const [isListActive, setListActiveStatus] = useState(false);
+
+    useEffect(() => {
+        if (isMobile) setListActiveStatus(true);
+    }, [])
 
     const menuItems = linksData.map(el => <MenuItem key={el.title} path={el.path} title={el.title} descr={el.descr} />)
 
     const menuListCN = isListActive ? `${s.menu__list} ${s.active}` : s.menu__list
 
     const onBtnClickHandler = () => {
-        setListStatus(!isListActive)
+        if (!isMobile) setListActiveStatus(!isListActive)
     }
 
     return (

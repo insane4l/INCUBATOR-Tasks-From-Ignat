@@ -44,7 +44,7 @@ hr {
     background: linear-gradient(rgba(0,0,0, 0.7), rgba(0, 235, 235, 0.7)), url(../../../assets/images/appbg2.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
-    /* background-size: cover; */
+    background-size: cover;
 }
 .main_theme .hw_section {
     border: 2px solid rgba(255, 255, 255, .5);
@@ -171,6 +171,23 @@ hr {
 
 
 
+@media screen and (max-width: 987px) {
+    .app__wrapper h1 {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .purple_liquid_theme .page__title,
+    .react_theme .page__title {
+        text-align-last: center;
+        margin-left: 0;
+    }
+    .hw_section {
+        position: relative;
+        left: 50%;
+        margin: 22px 0 22px 0;
+        transform: translateX(-50%);
+    }
+}
 
 
 

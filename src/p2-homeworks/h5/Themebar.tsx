@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { isMobile } from 'react-device-detect';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppStateType } from '../h10/bll/store';
 import { changeThemeAC, ThemeType } from '../h12/bll/themeReducer';
@@ -9,19 +10,26 @@ import s from './Themebar.module.css';
 
 
 const Themebar = () => {
+
     const [isOptionsCollapsed, setOptionsCollapsed] = useState(true);
 
     const theme = useSelector((state: AppStateType) => state.theme.currentTheme);
     const dispatch = useDispatch();
 
+
+    useEffect(() => {
+        if (isMobile) setOptionsCollapsed(false);
+    }, [])
+
+
     const onThemeChanged = (option: string) => {
         dispatch(changeThemeAC(option as ThemeType));
-        setOptionsCollapsed(true);        
+        if (!isMobile) setOptionsCollapsed(true);        
     }
 
     const onClickHandler = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         const target = e.target as HTMLDivElement | HTMLSelectElement
-        if (target.tagName !== "SELECT") {
+        if (target.tagName !== "SELECT" && !isMobile) {
             setOptionsCollapsed(!isOptionsCollapsed);
         }   
     }

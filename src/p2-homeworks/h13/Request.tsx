@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Spinner from '../h10/Spinner';
 import SuperCheckbox from '../h4/common/c3-SuperCheckbox/SuperCheckbox'
 import { testRequest } from './services/testAPI'
+import s from './Request.module.css'
 
 type ResponseType = {
     errorText: string
@@ -34,21 +35,12 @@ function Request() {
         })
     }
 
-    const responseSectionStyle = {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        minWidth: '600px',
-        height: '120px', padding: '10px',  border: '2px solid #000', borderRadius: '4px',
-        fontWeight: '600', backgroundColor: '#222', color: '#fff'
-    }
-
     return (
         <div>
             <SuperCheckbox onChangeChecked={sendRequest} >Click to send a test request to the server</SuperCheckbox>
 
             <div style={{margin: '20px 0 5px 0'}}className="sub_header">Response:</div> 
-            <div style={responseSectionStyle}>
+            <div className={s.responseSection}>
                 {response && <span style={{fontWeight: '900'}}>{response}</span>}
                 {error && <span style={{color: 'red'}}>{error}</span>}
 
